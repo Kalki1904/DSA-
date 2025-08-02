@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int first_occurance(vector<int>& a,int target){
+    int low=0;
+    int high=a.size()-1;
+    int ans=0;
+    while(low<=high){
+        int mid=high+(low-high)/2;
+        if(target==a.at(mid)){  
+            ans=mid+1;
+            high=mid-1; 
+        }
+        else if (target > a.at(mid)){
+            low=mid+1;
+        }
+        else if (target < a.at(mid)){
+            high=mid-1;
+        }
+        
+    }
+    return ans;
+
+}
+
+
+int last_occurance(vector<int>& a,int target){
+    int low=0;
+    int high=a.size()-1;
+    int ans=0;
+    while(low<=high){
+        int mid=high+(low-high)/2;
+        if(target==a.at(mid)){  
+            ans=mid+1;
+            low=mid+1; 
+        }
+        else if (target > a.at(mid)){
+            low=mid+1;
+        }
+        else if (target < a.at(mid)){
+            high=mid-1;
+        }
+        
+    }
+    return ans;
+
+}
+
+int main(){
+    vector<int>a(4);
+    cout << "Enter Elements" << endl;
+    for(int &i:a){
+        cin >>i;
+    }
+    cout << "Enter Target" << endl;
+    int target=0;
+    cin >>target;
+    cout << "first Occurance at = " << first_occurance(a,target) << "last occurance at = " << last_occurance(a,target);
+
+}
