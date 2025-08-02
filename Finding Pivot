@@ -1,0 +1,63 @@
+/*Here we are using sorted rotated array i.e [1,2,3,4,5]->[4,5,1,2,3]
+
+The Pivot element is 1 Draw the graph to understand Much better*/
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+
+int pivot(vector<int>a){
+
+    int start=0;
+
+    int end=a.size()-1;
+
+    int mid=0;
+
+    while(start<end){
+
+        mid=start+(end-start)/2;
+
+        if(a[mid]>a[0]){
+
+            start=mid+1;
+
+        }
+
+        else{
+
+            end=mid; // Not doing mid -1 because the mid element could also be our pivpt element and by doing mid-1 pivot may get out of range 
+
+        }
+
+    }
+
+    return a[end];
+
+
+
+}
+
+
+
+int main(){
+
+    vector<int>a(5);
+
+    cout << "Enter Elements " << endl;
+
+    for(int &i:a){
+
+        cin >>i;
+
+    }
+
+    cout << "Pivot is = " << pivot(a);
+
+
+
+}
+
