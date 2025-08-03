@@ -42,9 +42,14 @@ int book_allocation(vector<int>a,int n,int m){
     return ans;
 }
 int main(){
-    vector<int>a={10,20,30,40};
-    int n=4;
-    int m=2;
+    int n=0; // Total Number of Books
+    int m=0; // Total Number of students
+    vector<int>a(n);
+    for(int &i:a){
+        cin >> i;
+    }
+    
     cout << "Answer is = " << book_allocation(a,n,m);
+
 
 }
